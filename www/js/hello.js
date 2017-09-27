@@ -1,5 +1,6 @@
 document.getElementById('say_hello').onclick = function () {
   document.getElementById('cloudResponse').innerHTML = "<p>Calling Cloud.....</p>";
+  var start = Date.now();
   $fh.cloud(
       {
         path: 'hello',
@@ -8,10 +9,12 @@ document.getElementById('say_hello').onclick = function () {
         }
       },
       function (res) {
-        document.getElementById('cloudResponse').innerHTML = "<p>" + res.msg + "</p>";
+          var duration = Date.now() - start;
+        document.getElementById('cloudResponse').innerHTML = "<p>" + res.msg + ', after ' + duration + ' milliseconds' + "</p>";
       },
       function (msg, err) {
-        alert('Cloud call failed with error message: ' + msg + '. Error properties: ' + JSON.stringify(err));
+          var duration = Date.now() - start;
+        alert('Cloud call failed with error message: ' + msg + '. Error properties: ' + JSON.stringify(err) + ', after ' + duration + ' milliseconds');
       }
   );
 };
