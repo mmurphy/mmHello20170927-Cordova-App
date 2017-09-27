@@ -14,7 +14,7 @@ document.getElementById('say_hello').onclick = function () {
       },
       function (msg, err) {
           var duration = Date.now() - start;
-        alert('Cloud call failed with error message: ' + msg + '. Error properties: ' + JSON.stringify(err) + ', after ' + duration + ' milliseconds');
+        document.getElementById('cloudResponse').innerHTML = "<p>" + 'Cloud call failed with error message: ' + msg + '. Error properties: ' + JSON.stringify(err) + ', after ' + duration + ' milliseconds' + "</p>";
       }
   );
 };
