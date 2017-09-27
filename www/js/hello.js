@@ -4,7 +4,7 @@ document.getElementById('say_hello').onclick = function () {
   $fh.cloud(
       {
         path: 'hello',
-        timeout: 10000,
+        // timeout: 10000,
         data: {
           hello: document.getElementById('hello_to').value
         }
